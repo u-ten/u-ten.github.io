@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "build:prod": "NODE_ENV=production next build",
-    "predeploy": "rm -rf .next out && npm run build:prod",
+    "predeploy": "rm -rf .next out && npm run build:prod && touch out/.nojekyll",
     "deploy": "git add out/ -f && git commit -m \"Deploy to gh-pages\" && git push origin `git subtree split --prefix out master`:refs/heads/gh-pages --force"
   },
   "dependencies": {
