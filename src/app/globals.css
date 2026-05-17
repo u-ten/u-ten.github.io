@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: 255, 255, 255;
+  --background: 10, 10, 15;
+  --accent: 99, 102, 241;
+}
+
+body {
+  color: rgb(var(--foreground));
+  background: rgb(var(--background));
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.animation-delay-100 { animation-delay: 0.1s; }
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-300 { animation-delay: 0.3s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+.animation-delay-500 { animation-delay: 0.5s; }
+.animation-delay-600 { animation-delay: 0.6s; }
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.02em;
+}
+
+.btn-primary {
+  @apply px-6 py-3 bg-indigo-600 text-white rounded-xl font-medium
+         transition-all duration-200 ease-out
+         hover:bg-indigo-500 hover:scale-[1.02] hover:shadow-lg hover:shadow-indigo-500/25
+         active:scale-[0.98];
+}
+
+.btn-secondary {
+  @apply px-6 py-3 bg-white/10 text-white rounded-xl font-medium
+         backdrop-blur-sm border border-white/10 transition-all duration-200 ease-out
+         hover:bg-white/15 hover:scale-[1.02] hover:border-white/20
+         active:scale-[0.98];
+}
+
+.btn-store {
+  @apply inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black rounded-xl font-medium text-sm
+         transition-all duration-200 ease-out
+         hover:bg-gray-100 hover:scale-[1.02]
+         active:scale-[0.98];
+}
+
+.card {
+  @apply bg-white/[0.04] rounded-2xl p-8 backdrop-blur-sm border border-white/[0.08];
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r
+         from-indigo-400 to-purple-400;
+}
+
+/* Swiper */
+.swiper {
+  @apply w-full h-full;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  @apply text-white opacity-50 hover:opacity-100 transition-opacity;
+}
+
+.swiper-pagination-bullet {
+  @apply bg-white/50;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-white;
+}
