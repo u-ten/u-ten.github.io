@@ -6,7 +6,7 @@ import Navigation from "@/components/Navigation";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Uten Apps",
+  title: "Apps",
   description: "シンプルで使いやすいモバイルアプリを開発しています",
 };
 

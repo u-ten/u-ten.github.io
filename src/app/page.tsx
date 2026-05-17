@@ -10,6 +10,7 @@ const apps = [
     color: 'from-indigo-600 to-violet-600',
     icon: '⊞',
     appStoreUrl: 'https://apps.apple.com/cr/app/ランダムqrコード生成/id6743641682',
+    websiteUrl: null,
     privacyUrl: '/privacy-random-qr-gen',
     status: 'available',
     images: [
@@ -20,15 +21,20 @@ const apps = [
   {
     id: 'memoriary',
     title: 'Memoriary',
-    subtitle: 'Photo & Video Manager',
-    description: '写真・動画を美しく管理・閲覧できるモバイルアプリ。思い出をひとつのアルバムに。現在開発中です。',
-    tags: ['Flutter', '写真管理', '動画対応'],
-    color: 'from-emerald-600 to-teal-600',
+    subtitle: '大切な思い出を、美しいストーリーに',
+    description: '写真・テキスト・BGM・アニメーションを組み合わせて、大切な思い出を美しいスライドショーにできるiOSアプリです。',
+    tags: ['iOS', 'スライドショー', '思い出'],
+    color: 'from-amber-600 to-orange-500',
     icon: '◈',
-    appStoreUrl: null,
+    appStoreUrl: 'https://apps.apple.com/us/app/memorialy/id6760036241',
+    websiteUrl: 'https://memorialy.jp/',
     privacyUrl: '/privacy-memorialy',
-    status: 'coming-soon',
-    images: [],
+    status: 'available',
+    images: [
+      { url: 'https://memorialy.jp/web/app_screen/IMG_5372.png', alt: 'Memorialy スクリーンショット1' },
+      { url: 'https://memorialy.jp/web/app_screen/IMG_5374.png', alt: 'Memorialy スクリーンショット2' },
+      { url: 'https://memorialy.jp/web/app_screen/IMG_5376.png', alt: 'Memorialy スクリーンショット3' },
+    ],
   },
 ];
 
@@ -43,7 +49,7 @@ export default function Home() {
         </div>
         <div className="max-w-4xl mx-auto text-center relative">
           <p className="text-indigo-400 text-sm font-medium tracking-widest uppercase mb-6 opacity-0 animate-fade-up">
-            Uten Apps
+            Mobile Apps
           </p>
           <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-6 opacity-0 animate-fade-up animation-delay-100">
             シンプルで<br />
@@ -101,7 +107,7 @@ export default function Home() {
                   ))}
                 </div>
                 {/* Actions */}
-                <div className="flex items-center gap-3 pt-1">
+                <div className="flex items-center gap-3 pt-1 flex-wrap">
                   {app.appStoreUrl ? (
                     <a
                       href={app.appStoreUrl}
@@ -116,6 +122,16 @@ export default function Home() {
                     </a>
                   ) : (
                     <span className="text-sm text-gray-600">近日公開予定</span>
+                  )}
+                  {app.websiteUrl && (
+                    <a
+                      href={app.websiteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-gray-400 hover:text-white transition-colors"
+                    >
+                      公式サイト
+                    </a>
                   )}
                   <Link
                     href={app.privacyUrl}

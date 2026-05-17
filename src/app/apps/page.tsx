@@ -16,6 +16,7 @@ interface AppInfo {
   details: string[];
   images: { url: string; alt: string }[];
   appStoreUrl: string | null;
+  websiteUrl: string | null;
   technologies: string[];
   color: string;
   icon: string;
@@ -39,6 +40,7 @@ const apps: AppInfo[] = [
       { url: '/qr-generator-screenshot2.PNG', alt: 'QRコード一覧画面' },
     ],
     appStoreUrl: 'https://apps.apple.com/cr/app/ランダムqrコード生成/id6743641682',
+    websiteUrl: null,
     technologies: ['Swift', 'QRコード生成', 'iOS'],
     color: 'from-indigo-600 to-violet-600',
     icon: '⊞',
@@ -48,21 +50,28 @@ const apps: AppInfo[] = [
   {
     id: 'memoriary',
     title: 'Memoriary',
-    subtitle: 'Photo & Video Manager',
-    description: '写真・動画を美しく管理・閲覧できるモバイルアプリです。ギャラリー表示や画像編集など、大切な思い出をひとつのアルバムに残すための機能を備えています。',
+    subtitle: '大切な思い出を、美しいストーリーに',
+    description: '写真・テキスト・BGM・アニメーションを組み合わせて、大切な思い出を美しいスライドショーにできるiOSアプリです。誕生日・結婚式・卒業式など特別な瞬間を、動画として保存・共有できます。',
     details: [
-      '写真・動画のギャラリー管理',
-      '画像編集機能',
-      'デバイス上でのみデータを保管（クラウド送信なし）',
-      'カメラ・フォトライブラリとの連携',
+      '写真とテキストをストーリー形式で編集',
+      'BGM（背景音楽）の設定',
+      '各フレームへのアニメーション効果',
+      '動画として書き出し・保存',
+      'オフライン完結・プライバシー重視（データはデバイス内に保存）',
     ],
-    images: [],
-    appStoreUrl: null,
-    technologies: ['Flutter', 'Dart', 'iOS / Android'],
-    color: 'from-emerald-600 to-teal-600',
+    images: [
+      { url: 'https://memorialy.jp/web/app_screen/IMG_5372.png', alt: 'Memorialy スクリーンショット1' },
+      { url: 'https://memorialy.jp/web/app_screen/IMG_5374.png', alt: 'Memorialy スクリーンショット2' },
+      { url: 'https://memorialy.jp/web/app_screen/IMG_5376.png', alt: 'Memorialy スクリーンショット3' },
+      { url: 'https://memorialy.jp/web/app_screen/IMG_5378.png', alt: 'Memorialy スクリーンショット4' },
+    ],
+    appStoreUrl: 'https://apps.apple.com/us/app/memorialy/id6760036241',
+    websiteUrl: 'https://memorialy.jp/',
+    technologies: ['Swift', 'iOS', 'オフライン対応'],
+    color: 'from-amber-600 to-orange-500',
     icon: '◈',
     privacyUrl: '/privacy-memorialy',
-    status: 'coming-soon',
+    status: 'available',
   },
 ];
 
@@ -72,7 +81,7 @@ export default function Apps() {
       <section className="px-6 mb-16">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-3">アプリ一覧</h1>
-          <p className="text-gray-400">Utenが開発しているモバイルアプリの一覧です。</p>
+          <p className="text-gray-400">開発しているモバイルアプリの一覧です。</p>
         </div>
       </section>
 
@@ -154,7 +163,7 @@ export default function Apps() {
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-4 pt-2">
+                  <div className="flex items-center gap-4 pt-2 flex-wrap">
                     {app.appStoreUrl ? (
                       <a
                         href={app.appStoreUrl}
@@ -169,6 +178,16 @@ export default function Apps() {
                       </a>
                     ) : (
                       <span className="text-sm text-gray-600 italic">近日公開予定</span>
+                    )}
+                    {app.websiteUrl && (
+                      <a
+                        href={app.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-gray-400 hover:text-white transition-colors"
+                      >
+                        公式サイト
+                      </a>
                     )}
                     <Link
                       href={app.privacyUrl}
